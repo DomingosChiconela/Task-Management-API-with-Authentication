@@ -55,6 +55,29 @@ export const createTask = async (req: Request, res: Response) => {
 }
 
 
+export const getTask  = async (req: Request, res: Response)=>{
+
+    const {userId}= req
+
+    try {
+  
+        const tasks = await db.task.findMany({
+            where:{
+                userId
+            }
+            
+        })
+        
+        res.status(200).json({ message: "tasks found", data: tasks })
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({ message: "Internal Server Error" });
+  
+    }
+
+
+}
+
 export  const updateTask = async (req:Request,res:Response)=>{
     const {userId}= req
     const  {id} = req.params
