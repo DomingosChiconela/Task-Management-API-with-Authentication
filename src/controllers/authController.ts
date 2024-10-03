@@ -128,7 +128,7 @@ export const login =  async (req: Request, res: Response) => {
 
         }
        
-        if(! await checkPassword(validation.data.password,user?.password)){
+        if(! await checkPassword(validation.data.password,user.password)){
             return  res.status(400).json({message:"invalid password"})
         }
 
@@ -138,6 +138,9 @@ export const login =  async (req: Request, res: Response) => {
         res.status(200).json({message:"authenticated user",token})
 
     }catch (error) {
+
+
+        console.log(error)
         
         return res.status(500).json({ message: "Internal Server Error" });
     }

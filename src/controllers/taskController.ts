@@ -12,9 +12,11 @@ const taskSchema  = z.object({
 
     title :z.string(), 
     description:z.string(),
-    due_date: z.date().refine(date => date > new Date(), {
-    message: "A data de vencimento deve ser uma data futura", 
-  }),
+    due_date: z.string()
+    .transform((str) => new Date(str)) 
+    .refine(date => date > new Date(), {
+      message: "Due date must be a future date",
+    }),
 
 })
 
