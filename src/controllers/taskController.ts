@@ -96,7 +96,7 @@ export  const updateTask = async (req:Request,res:Response)=>{
     
 
     if (!existingTask) {
-        return res.status(404).json({ message: "Post not found" });
+        return res.status(404).json({ message: "Task not found" });
     }
 
     if(existingTask.userId !== userId){
@@ -119,6 +119,42 @@ export  const updateTask = async (req:Request,res:Response)=>{
 
 
     
+
+
+}
+
+
+export const deleteTask = async (req: Request, res: Response) => {
+
+    const { id } = req.params
+
+
+    try {
+
+        const existingTask = await db.task.findUnique({
+            where: { id }
+        });
+
+        if (!existingTask) {
+            return res.status(404).json({ message: "Task not found" });
+        }
+
+        const Task = await db.task.delete({
+            where: { id }
+        })
+
+        if (!Task) {
+            return res.status(400).json({ message: "Task not found" })
+        }
+
+        res.status(200).json({ message: "Task eliminated" })
+    } catch (error) {
+
+        return res.status(500).json({ message: "Internal Server Error" });
+
+
+    }
+
 
 
 }
