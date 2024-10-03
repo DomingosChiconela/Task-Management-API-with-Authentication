@@ -55,3 +55,47 @@ export const createTask = async (req: Request, res: Response) => {
 }
 
 
+export  const updateTask = async (req:Request,res:Response)=>{
+    const {userId}= req
+    const  {id} = req.params
+
+    const validation = updateTaskSchema.safeParse(req.body);
+
+    if (!validation.success) {
+        return res.status(400).json({ message: fromZodError(validation.error).details });
+    }
+
+
+    const existingTask = await db.task.findUnique({
+        where: { id }
+    });
+
+    
+
+    if (!existingTask) {
+        return res.status(404).json({ message: "Post not found" });
+    }
+
+    if(existingTask.userId !== userId){
+        return res.status(403).json({ message: "Access denied. You are not the owner of this task." });
+    }
+
+    const dataToUpdate = Object.fromEntries(
+        Object.entries(validation.data).filter(([_, value]) => value !== undefined && value !== null)
+    );
+
+
+    const updatedTask  = await db.task.update({
+        where:{ id},
+        data:dataToUpdate,
+       
+    })
+
+    res.status(200).json({ message: "Task updated", data: updatedTask });
+
+
+
+    
+
+
+}
