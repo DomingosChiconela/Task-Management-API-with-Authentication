@@ -1,4 +1,5 @@
 import { Request,Response} from "express";
+import { verify } from "jsonwebtoken";
 
 
 import { date, z } from "zod";
@@ -28,6 +29,15 @@ const loginSchema = signupSchema.pick({
     password: true
   });
 
+
+type TokenPayload = {
+
+    id:string,
+    iat:number,
+    exp:number,
+    role: string
+
+}
 
 
   
@@ -136,6 +146,51 @@ export const login =  async (req: Request, res: Response) => {
 
 }
 
+
+export const verifyT =  async(req: Request, res: Response)=>{
+
+    
+    const  {authorization}  = req.headers
+     
+    if(!authorization){
+
+       return res.status(401).json({message:"Token not provider"})
+    }
+
+    const [,token] = authorization.split(" ")
+
+    try{
+
+        const decode  =  verify(token,secret)
+
+        const {id} =  decode as TokenPayload
+
+        const user = await  db.user.findUnique({
+
+            where:{
+                id
+            },
+            select:{
+                id:true,
+                username:true,
+                email:true,
+                role:true
+
+            }
+        })
+
+        
+
+        
+
+        res.status(200).json({message:"user found",data:user})
+      
+    }catch(error){
+
+        return res.status(500).json({message:"Internal Server Error"})
+    }
+
+}
 
   
   
