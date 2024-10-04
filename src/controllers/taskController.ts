@@ -129,7 +129,7 @@ export  const updateTask = async (req:Request,res:Response)=>{
 export const deleteTask = async (req: Request, res: Response) => {
     
     const { id } = req.params
-   
+    const {userId}= req
 
     try {
 
@@ -141,7 +141,9 @@ export const deleteTask = async (req: Request, res: Response) => {
             return res.status(404).json({ message: "Task not found" });
         }
 
-        
+        if(existingTask.userId !== userId){
+            return res.status(403).json({ message: "Access denied. You are not the owner of this task." });
+        }
 
         const Task = await db.task.delete({
             where: { id }
