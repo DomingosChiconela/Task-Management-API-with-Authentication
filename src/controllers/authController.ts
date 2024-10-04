@@ -1,5 +1,5 @@
 import { Request,Response} from "express";
-import { verify } from "jsonwebtoken";
+
 
 
 import { date, z } from "zod";
@@ -94,7 +94,7 @@ export const register = async (req: Request, res: Response) => {
           
         )
 
-        res.status(201).json({message:"user created "})
+        res.status(201).json({message:"user created"})
        
 
 
@@ -150,10 +150,12 @@ export const login =  async (req: Request, res: Response) => {
 }
 
 
-export const verifyT =  async(req: Request, res: Response)=>{
+export const verify =  async(req: Request, res: Response)=>{
 
     
     const  {authorization}  = req.headers
+
+    
      
     if(!authorization){
 
@@ -164,7 +166,7 @@ export const verifyT =  async(req: Request, res: Response)=>{
 
     try{
 
-        const decode  =  verify(token,secret)
+        const decode  =  jwt.verify(token,secret)
 
         const {id} =  decode as TokenPayload
 
@@ -184,7 +186,7 @@ export const verifyT =  async(req: Request, res: Response)=>{
 
         
         if(!user){
-            res.status(404).json({message:"user  not found"})
+           return res.status(404).json({message:"user  not found"})
 
         }
         

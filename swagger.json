@@ -77,12 +77,13 @@
       }
     },
     "/auth/verify": {
-      "post": {
+      "get": {
         "description": "Route to verify a user",
         "tags": ["Auth"],
         "security": [{ "bearerAuth": [] }],
         "responses": {
           "200": { "description": "User verified" },
+          "401":{ "description": "Token not provided" },
           "404": { "description": "user  not found" }
         }
       }

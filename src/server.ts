@@ -8,7 +8,7 @@ import { authRoute } from "./routes/authRoute"
 import { taskRoute } from "./routes/taskRoute"
 
 dotenv.config()
-const app  = express()
+export const app  = express()
 
 const port =  process.env.PORT||3000
 
@@ -20,6 +20,8 @@ app.use(urlencoded({extended:true}))
 app.use('/auth',authRoute);
 app.use('/tasks',taskRoute);
 app.use('/api/docs',swaggerUI.serve,swaggerUI.setup(swaggerDocument) )
+
+
 
 app.listen(port , ()=>{
 
