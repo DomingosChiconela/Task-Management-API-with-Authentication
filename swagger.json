@@ -1,0 +1,202 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Task-Management-API-with-Authentication",
+    "description": "Documentation for the Task Management API with authentication",
+    "version": "1.0.0"
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "description": "Route to register a new user",
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" },
+                  "confirmPassword": { "type": "string" }
+                },
+                "example": {
+                  "username": "john_doe",
+                  "email": "john.doe@example.com",
+                  "password": "strongpassword",
+                  "confirmPassword": "strongpassword"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "User created" },
+          "400": { "description": "username already exists" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "description": "Route to log in a user",
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": { "type": "string" },
+                  "password": { "type": "string" }
+                },
+                "example": {
+                  "username": "john_doe",
+                  "password": "strongpassword"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Authenticated user" },
+          "400": { "description": "Invalid password" },
+          "404": { "description": "User not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/auth/verify": {
+      "post": {
+        "description": "Route to verify a user",
+        "tags": ["Auth"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "User verified" }
+        }
+      }
+    },
+    "/tasks/": {
+      "post": {
+        "description": "Route to create a task",
+        "tags": ["Task"],
+        "security": [{ "bearerAuth": [] }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "description": { "type": "string" },
+                  "due_date": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": ["title", "description", "due_date"],
+                "example": {
+                  "title": "Implement JavaScript Sorting Algorithm",
+                  "description": "Write a function to sort an array of numbers using merge sort.",
+                  "due_date": "2024-10-10T17:00:00Z"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Task created successfully" },
+          "400": { "description": "Invalid data or missing fields" },
+          "401": { "description": "Token not provided" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "get": {
+        "description": "Route to get all tasks",
+        "tags": ["Task"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "200": { "description": "Tasks retrieved" },
+          "401": { "description": "Token not provided" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    },
+    "/tasks/{id}": {
+      "put": {
+        "description": "Route to update a specific task",
+        "tags": ["Task"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the task to update",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "description": { "type": "string" },
+                  "due_date": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "example": {
+                  "title": "Update JavaScript Sorting Algorithm",
+                  "description": "Improve merge sort for edge cases.",
+                  "due_date": "2024-10-20T12:00:00Z"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Task updated successfully" },
+          "400": { "description": "Invalid data or missing fields" },
+          "401": { "description": "Token not provided" },
+          "404": { "description": "Task not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      },
+      "delete": {
+        "description": "Route to delete a specific task",
+        "tags": ["Task"],
+        "security": [{ "bearerAuth": [] }],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the task to delete",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "Task deleted successfully" },
+          "401": { "description": "Token not provided" },
+          "403": { "description": "Access denied. Not the owner of this task." },
+          "404": { "description": "Task not found" },
+          "500": { "description": "Internal Server Error" }
+        }
+      }
+    }
+  }
+}

@@ -127,9 +127,9 @@ export  const updateTask = async (req:Request,res:Response)=>{
 
 
 export const deleteTask = async (req: Request, res: Response) => {
-
+    
     const { id } = req.params
-
+   
 
     try {
 
@@ -140,6 +140,8 @@ export const deleteTask = async (req: Request, res: Response) => {
         if (!existingTask) {
             return res.status(404).json({ message: "Task not found" });
         }
+
+        
 
         const Task = await db.task.delete({
             where: { id }
