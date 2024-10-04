@@ -82,7 +82,8 @@
         "tags": ["Auth"],
         "security": [{ "bearerAuth": [] }],
         "responses": {
-          "200": { "description": "User verified" }
+          "200": { "description": "User verified" },
+          "404": { "description": "user  not found" }
         }
       }
     },

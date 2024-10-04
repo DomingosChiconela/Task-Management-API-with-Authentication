@@ -44,7 +44,7 @@ type TokenPayload = {
 
 
 export const register = async (req: Request, res: Response) => {
-    console.log(req.body)
+   
 
     try {
         
@@ -183,10 +183,13 @@ export const verifyT =  async(req: Request, res: Response)=>{
         })
 
         
+        if(!user){
+            res.status(404).json({message:"user  not found"})
 
+        }
         
 
-        res.status(200).json({message:"user found",data:user})
+        res.status(200).json({message:"User verified",data:user})
       
     }catch(error){
 

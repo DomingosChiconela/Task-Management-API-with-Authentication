@@ -19,7 +19,7 @@ app.use(urlencoded({extended:true}))
 
 app.use('/auth',authRoute);
 app.use('/tasks',taskRoute);
-app.use('/docs',swaggerUI.serve,swaggerUI.setup(swaggerDocument) )
+app.use('/api/docs',swaggerUI.serve,swaggerUI.setup(swaggerDocument) )
 
 app.listen(port , ()=>{
 
