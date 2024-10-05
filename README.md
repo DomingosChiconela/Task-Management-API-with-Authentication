@@ -1,8 +1,10 @@
 # Task-Management-API-with-Authentication
+
 A **Task Management API** é uma API RESTful projetada para fornecer funcionalidades essenciais de gerenciamento de tarefas, com foco em segurança e facilidade de uso. Ela inclui um sistema completo de autenticação e autorização, garantindo que apenas usuários autenticados possam criar, visualizar, editar e excluir suas próprias tarefas. Além disso, a API está documentada de forma interativa com o Swagger, permitindo que você explore e teste facilmente seus endpoints.
 
 A API já está hospedada e disponível publicamente em: [Task Management API](https://task-management-api-with-authentication.onrender.com). 
-Com esta API, os usuários podem gerenciar suas tarefas de maneira eficiente e segura, em um ambiente acessível e confiável.
+
+Acesse o Swagger da  API hospedada em: [Task Management API SWAGGER](https://task-management-api-with-authentication.onrender.com/api/docs/)
 
 
 ## Funcionalidades
@@ -50,7 +52,7 @@ Com esta API, os usuários podem gerenciar suas tarefas de maneira eficiente e s
 1. Clone o repositório:
    
    ```bash
-   git@github.com:DomingosChiconela/Task-Management-API-with-Authentication.git
+    git@github.com:DomingosChiconela/Task-Management-API-with-Authentication.git
   ou
   
     https://github.com/DomingosChiconela/Task-Management-API-with-Authentication.git
@@ -73,13 +75,11 @@ Com esta API, os usuários podem gerenciar suas tarefas de maneira eficiente e s
    ```bash
    http://localhost:{numero de porta}/api/docs/
 
-Ou, se preferir, acesse o Swagger da aplicação hospedada em: [Task Management API SWAGGER](https://task-management-api-with-authentication.onrender.com/api/docs/)
-
 7. Para executar os teste utilize o comando:
    ```bash
    npm run test
 
-***Nota:*** Os testes estão localizados no diretório` __tests__` e foram cuidadosamente comentados para facilitar a compreensão. Certifique-se de revisar os comentários para entender a lógica por trás de cada teste.
+***Nota:*** Os testes estão localizados no diretório` __tests__` e foram devidamente comentados para facilitar a compreensão. Certifique-se de revisar os comentários para entender a lógica por trás de cada teste.
    
 
 
