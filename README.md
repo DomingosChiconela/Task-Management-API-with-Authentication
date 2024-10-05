@@ -69,7 +69,7 @@ Acesse o Swagger da  API hospedada em: [Task Management API SWAGGER](https://tas
    
 5. Para rodar a aplicação, utilize o comando
    ```bash
-   npm run dev
+   npm run server
  
 6. Com o servidor rodando, você pode acessar a documentação Swagger no seguinte endereço
    ```bash
