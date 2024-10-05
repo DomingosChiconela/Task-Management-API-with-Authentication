@@ -47,34 +47,33 @@ Com esta API, os usuários podem gerenciar suas tarefas de maneira eficiente e s
 
 
 ### Passos
-
 1. Clone o repositório:
-
+   
    ```bash
    git@github.com:DomingosChiconela/Task-Management-API-with-Authentication.git
   ou
   
     https://github.com/DomingosChiconela/Task-Management-API-with-Authentication.git
 
-2. **acesse o projecto que a caba de clonar com o comando:**
+2. acesse o projecto que a caba de clonar com o comando:
    ```bash
    cd Task-Management-API-with-Authentication
    
-3. **Instale as dependências**
+3. Instale as dependências
     ```bash
     npm install 
 
-4. **Configure as variáveis de ambiente antes de rodar a aplicação. Para isso, crie o arquivo ***.env*** com base no arquivo ***.env.template***, que contém um molde do que é necessário.**
+4. Configure as variáveis de ambiente antes de rodar a aplicação. Para isso, crie o arquivo ***.env*** com base no arquivo ***.env.template***, que contém um molde do que é necessário.
    
-5. **Para rodar a aplicação, utilize o comando**
+5. Para rodar a aplicação, utilize o comando
    ```bash
    npm run dev
  
-6. **Com o servidor rodando, você pode acessar a documentação Swagger no seguinte endereço**
+6. Com o servidor rodando, você pode acessar a documentação Swagger no seguinte endereço
    ```bash
    http://localhost:{numero de porta}/api/docs/
 
-**Ou, se preferir, acesse o Swagger da aplicação hospedada em: [Task Management API SWAGGER](https://task-management-api-with-authentication.onrender.com/api/docs/)**
+Ou, se preferir, acesse o Swagger da aplicação hospedada em: [Task Management API SWAGGER](https://task-management-api-with-authentication.onrender.com/api/docs/)
 
 
 
