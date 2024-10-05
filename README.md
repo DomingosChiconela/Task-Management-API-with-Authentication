@@ -63,7 +63,7 @@ Com esta API, os usuários podem gerenciar suas tarefas de maneira eficiente e s
     ```bash
     npm install 
 
-4. Configure as variáveis de ambiente antes de rodar a aplicação. Para isso, crie o arquivo ***.env*** com base no arquivo ***.env.template***, que contém um molde do que é necessário.
+4. Configure as variáveis de ambiente antes de rodar a aplicação. Para isso, crie o arquivo `.env` com base no arquivo `.env.template`, que contém um molde do que é necessário.
    
 5. Para rodar a aplicação, utilize o comando
    ```bash
