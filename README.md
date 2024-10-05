@@ -79,7 +79,7 @@ Ou, se preferir, acesse o Swagger da aplicação hospedada em: [Task Management 
    ```bash
    npm run test
 
-***Nota:***Os testes estão localizados no diretório` __tests__` e foram cuidadosamente comentados para facilitar a compreensão. Certifique-se de revisar os comentários para entender a lógica por trás de cada teste.
+***Nota:*** Os testes estão localizados no diretório` __tests__` e foram cuidadosamente comentados para facilitar a compreensão. Certifique-se de revisar os comentários para entender a lógica por trás de cada teste.
    
 
 
