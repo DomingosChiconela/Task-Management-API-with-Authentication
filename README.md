@@ -75,5 +75,12 @@ Com esta API, os usuários podem gerenciar suas tarefas de maneira eficiente e s
 
 Ou, se preferir, acesse o Swagger da aplicação hospedada em: [Task Management API SWAGGER](https://task-management-api-with-authentication.onrender.com/api/docs/)
 
+7. Para executar os teste utilize o comando:
+   ```bash
+   npm run test
+
+***Nota:***Os testes estão localizados no diretório` __tests__` e foram cuidadosamente comentados para facilitar a compreensão. Certifique-se de revisar os comentários para entender a lógica por trás de cada teste.
+   
+
 
 
