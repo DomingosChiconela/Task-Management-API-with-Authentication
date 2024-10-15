@@ -2,9 +2,9 @@
 
 A **Task Management API** é uma API RESTful projetada para fornecer funcionalidades essenciais de gerenciamento de tarefas, com foco em segurança e facilidade de uso. Ela inclui um sistema completo de autenticação e autorização, garantindo que apenas usuários autenticados possam criar, visualizar, editar e excluir suas próprias tarefas. Além disso, a API está documentada de forma interativa com o Swagger, permitindo que você explore e teste facilmente seus endpoints.
 
-A API já está hospedada e disponível publicamente em: [Task Management API](https://task-management-api-with-authentication.onrender.com). 
+A API já está hospedada e disponível publicamente em: https://task-management-api-with-authentication.onrender.com 
 
-Acesse o Swagger da  API hospedada em: [Task Management API SWAGGER](https://task-management-api-with-authentication.onrender.com/api/docs/)
+Acesse o Swagger da  API hospedada em: https://task-management-api-with-authentication.onrender.com/api/docs/
 
 
 ## Funcionalidades
