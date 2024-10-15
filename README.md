@@ -52,10 +52,8 @@ Acesse o Swagger da  API hospedada em: https://task-management-api-with-authenti
 1. Clone o repositório:
    
    ```bash
-    git@github.com:DomingosChiconela/Task-Management-API-with-Authentication.git
-  ou
+   https://github.com/DomingosChiconela/Task-Management-API-with-Authentication.git
   
-    https://github.com/DomingosChiconela/Task-Management-API-with-Authentication.git
 
 2. acesse o projecto que a caba de clonar com o comando:
    ```bash
